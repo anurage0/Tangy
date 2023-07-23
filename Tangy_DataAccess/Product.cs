@@ -51,5 +51,6 @@ namespace Tangy_DataAccess
         {
             get;set;
         }
+        public ICollection<ProductPrice> ProductPrices { get; set; }
     }
 }
