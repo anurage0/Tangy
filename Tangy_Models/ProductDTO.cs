@@ -51,5 +51,6 @@ namespace Tangy_Models
         {
             get; set;
         }
+        public ICollection<ProductPriceDTO> ProductPrices { get; set; }
     }
 }
