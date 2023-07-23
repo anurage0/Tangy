@@ -18,5 +18,10 @@ namespace Tangy_DataAccess.Data
         {
             get; set;
         }
+
+        public DbSet<Product> Products
+        {
+            get; set;
+        }
     }
 }

@@ -5,20 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tangy_DataAccess
+namespace Tangy_Models
 {
-    public class Category
+    public class CategoryDTO
     {
-        [Key]
         public int Id
         {
             get; set;
         }
+        [Required(ErrorMessage = "Please enter name..")]
         public string Name
-        {
-            get; set;
-        }
-        public DateTime CreatedDate
         {
             get; set;
         }
