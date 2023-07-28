@@ -1,6 +1,9 @@
 ﻿@page "/details/{ProductId:int}"
-@using TangyWeb_Client.ViewModels;
+
 @inject IProductService _productService
+@inject ICartService _cartService
+@inject NavigationManager _navManager
+@inject IJSRuntime _jsRuntime
 
 @if (IsProcessing)
 {
@@ -117,6 +120,15 @@ else
 
     private async Task AddToCart()
     {
-        
+        ShoppingCart shoppingCart = new()
+            {
+                Count = DetailsVM.Count,
+                ProductId = ProductId,
+                ProductPriceId = DetailsVM.SelectedProductPriceId
+            };
+
+            await _cartService.IncrementCart(shoppingCart);
+            _navManager.NavigateTo("/");
+            await _jsRuntime.ToastrSuccess("Product added to cart Successfully");
     }
 }
